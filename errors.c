@@ -15,7 +15,18 @@ void print_error(int choice, ...)
 		case 1:
 			fprintf(stderr, "L%d: usage: push integer", va_arg(args, int));
 			break;
-
+        case 2:
+            fprintf(stderr, "USAGE: monty file");
+            break;
+        case 3:
+            fprintf(stderr, "Error: Can't open file %s", va_arg(args, char*));
+            break;
+        case 4:
+            fprintf(stderr,"L%d: unknown instruction %s", va_arg(args, char*));
+            break;
+        case 5:
+            fprintf(stderr, "Error: malloc failed");
+            break;
 	}
 	va_end(args);
 
