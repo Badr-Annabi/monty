@@ -31,14 +31,17 @@ int main(int argc, char *argv[])
 int parse_line(char *filename)
 {
 	FILE *fd;
-	char *buffer, *opcode, *value, *delim = "\n ";
+	char *buffer = NULL, *opcode, *value, *delim = "\n ";
 	size_t len = 0;
 	unsigned int line_number, format = 0;
 
 
 	fd = fopen(filename, "r");
 	if (filename == NULL || fd == NULL)
+	{
 		print_error(3, filename);
+		exit(EXIT_FAILURE);
+	}
 	for (line_number = 1; getline(&buffer, &len, fd) != -1; line_number++)
 	{
 		if (buffer == NULL)
@@ -49,7 +52,7 @@ int parse_line(char *filename)
 
 		opcode = strtok(buffer, delim);
 		if (opcode == NULL)
-			return (0);
+			continue;
 		value = strtok(NULL, delim);
 
 		if (strcmp(opcode, "stack") == 0)
@@ -64,5 +67,6 @@ int parse_line(char *filename)
 		}
 		call_function(opcode, value, line_number, format);
 	}
-		return (format);
+	free(buffer);
+	return (format);
 }

@@ -13,7 +13,7 @@ void add_to_stack(stack_t **node, unsigned int line_num)
 	(void) line_num;
 
 	if (node == NULL || *node == NULL)
-		exit (EXIT_FAILURE);
+		exit(EXIT_FAILURE);
 	if (head == NULL)
 	{
 		head = *node;

@@ -15,21 +15,21 @@ void print_error(int choice, ...)
 	switch (choice)
 	{
 		case 1:
-			fprintf(stderr, "L%d: usage: push integer", va_arg(args, int));
+			fprintf(stderr, "L%d: usage: push integer\n", va_arg(args, int));
 			break;
 		case 2:
-			fprintf(stderr, "USAGE: monty file");
+			fprintf(stderr, "USAGE: monty file\n");
 			break;
 		case 3:
-			fprintf(stderr, "Error: Can't open file %s", va_arg(args, char*));
+			fprintf(stderr, "Error: Can't open file %s\n", va_arg(args, char*));
 			break;
 		case 4:
 			ln = va_arg(args, int);
 			op = va_arg(args, char *);
-			fprintf(stderr,"L%d: unknown instruction %s", ln, op);
+			fprintf(stderr, "L%d: unknown instruction %s\n", ln, op);
 			break;
 		case 5:
-			fprintf(stderr, "Error: malloc failed");
+			fprintf(stderr, "Error: malloc failed\n");
 			break;
 	}
 	va_end(args);
