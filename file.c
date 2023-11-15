@@ -35,6 +35,7 @@ int call_function(char *op, char *value, int line_number, int format)
 		{"mod", _mod},
 		{"pchar", _pchar},
 		{"rotl", rotl},
+		{"rotr", rotr},
 		{NULL, NULL}
 	};
 	if (op[0] == '#')
