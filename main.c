@@ -61,6 +61,8 @@ int parse_line(char *filename)
 			format = 1;
 			return (format);
 		}
+		if (opcode[0] == '#' || strcmp(opcode, "nop") == 0)
+			return (format);
 		call_function(opcode, value, line_number, format);
 	}
 	fclose(fd);

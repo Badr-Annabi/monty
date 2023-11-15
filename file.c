@@ -30,8 +30,6 @@ void call_function(char *op, char *value, int line_number, int format)
 	};
 	for (flag = 1, i = 0; func_list[i].opcode != NULL; i++)
 	{
-		if (op[0] == '#' || strcmp(op, "nop") == 0)
-			return;
 		if (strcmp(op, func_list[i].opcode) == 0)
 		{
 			found = 1;
