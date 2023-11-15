@@ -30,7 +30,7 @@ int call_function(char *op, char *value, int line_number, int format)
 		{"nop", nop},
 		{"add", _add},
 		{"sub", _sub},
-		/*{"div", _div},*/
+		{"div", _div},
 		{"mul", _mul},
 		/*{"mod", _mod},*/
 		{NULL, NULL}
