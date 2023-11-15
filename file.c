@@ -29,6 +29,7 @@ int call_function(char *op, char *value, int line_number, int format)
 		{"pop", _pop},
 		{"nop", nop},
 		{"add", _add},
+		{"sub", _sub},
 		{NULL, NULL}
 	};
 	if (op[0] == '#')
