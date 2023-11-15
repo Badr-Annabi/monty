@@ -46,12 +46,13 @@ stack_t *create_node(int n);
 void add_to_queue(stack_t **node, unsigned int line_number);
 void free_nodes(void);
 int parse_line(char *filename);
-void call_function(char *op, char *value, int line_number, int format);
+int call_function(char *op, char *value, int line_number, int format);
 void print_all(stack_t **stack, unsigned int line_number);
 void _swap(stack_t **stack, unsigned int line_number);
 void _pint(stack_t **stack, unsigned int line_number);
 void _pop(stack_t **stack, unsigned int line_number);
 void nop(stack_t **stack, unsigned int line_number);
+void _add(stack_t **stack, unsigned int line_number);
 
 
 #endif

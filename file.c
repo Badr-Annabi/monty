@@ -15,7 +15,7 @@ void t(void)
  * @line_number: line number for the instruction.
  * @format: format equal 0 if we are in a stack, and 1 if we entered a queue.
  */
-void call_function(char *op, char *value, int line_number, int format)
+int call_function(char *op, char *value, int line_number, int format)
 {
 	int i, j, flag = 1, found = 0;
 	stack_t *node;
@@ -27,10 +27,11 @@ void call_function(char *op, char *value, int line_number, int format)
 		{"swap", _swap},
 		{"pop", _pop},
 		{"nop", nop},
+		{"add", _add},
 		{NULL, NULL}
 	};
 	if (op[0] == '#')
-		return;
+		return(format);
 	for (flag = 1, i = 0; func_list[i].opcode != NULL; i++)
 	{
 		if (strcmp(op, func_list[i].opcode) == 0)
@@ -56,22 +57,25 @@ void call_function(char *op, char *value, int line_number, int format)
 				if (format == 1)
 					add_to_queue(&node, line_number);
 			}
-			else if (strcmp(op, "stack") == 0)
-			{
-				format = 0;
-				return;
-			}
-			else if (strcmp(op, "queue") == 0)
-			{
-				format = 1;
-				return;
-			}
-			else
-			{
-				func_list[i].f(&head, line_number);
-			}
+		}
+		else if (strcmp(op, "stack") == 0)
+		{
+			found = 1;
+			format = 0;
+			return(format);
+		}
+		else if (strcmp(op, "queue") == 0)
+		{
+			found = 1;
+			format = 1;
+			return(format);
+		}
+		else
+		{
+			func_list[i].f(&head, line_number);
 		}
 	}
 	if (!found)
 		print_error(4, line_number, op);
+	return (format);
 }

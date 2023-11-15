@@ -37,10 +37,7 @@ int parse_line(char *filename)
 
 	fd = fopen(filename, "r");
 	if (filename == NULL || fd == NULL)
-	{
 		print_error(3, filename);
-		exit(EXIT_FAILURE);
-	}
 	for (line_number = 1; getline(&buffer, &len, fd) != -1; line_number++)
 	{
 		if (buffer == NULL)
@@ -51,7 +48,7 @@ int parse_line(char *filename)
 			continue;
 		value = strtok(NULL, delim);
 
-		call_function(opcode, value, line_number, format);
+		format = call_function(opcode, value, line_number, format);
 	}
 	fclose(fd);
 	free(buffer);
