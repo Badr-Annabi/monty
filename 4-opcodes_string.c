@@ -15,7 +15,8 @@ void _pchar(stack_t **stack, unsigned int line_number)
 		print_error(16, line_number);
 	top_element = (*stack)->n;
 
-	if (top_element < 0 || top_element > 127)
+	if ((top_element < 65 || top_element > 90) &&
+			(top_element < 97 || top_element > 123))
 		print_error(15, line_number);
 	printf("%c\n", top_element);
 }
