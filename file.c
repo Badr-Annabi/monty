@@ -40,7 +40,7 @@ void call_function(char *op, char *value, int line_number, int format)
 					flag = -1;
 				}
 				if (value == NULL)
-					print_error(4, line_number);
+					print_error(1, line_number);
 				for (j = 0; value[j] != '\0'; j++)
 				{
 					if (isdigit(value[j]) == 0)
