@@ -8,10 +8,9 @@
  */
 void _pint(stack_t **stack, unsigned int line_number)
 {
-	(void) line_number;
 	if (stack == NULL || (*stack) == NULL)
 	{
-		print_error(6);
+		print_error(6, line_number);
 	}
 	printf("%d\n", (*stack)->n);
 }
@@ -27,7 +26,7 @@ void _swap(stack_t **stack, unsigned int line_number)
 
 	(void) line_number;
 	if (stack == NULL || (*stack) == NULL || (*stack)->next == NULL)
-		print_error(8);
+		print_error(8, line_number);
 	tmp = (*stack)->next;
 	(*stack)->next = tmp->next;
 	if (tmp->next != NULL)
@@ -48,9 +47,8 @@ void _pop(stack_t **stack, unsigned int line_number)
 {
 	stack_t *tmp;
 
-	(void) line_number;
 	if (stack == NULL || *stack == NULL)
-		print_error(3, line_number);
+		print_error(7, line_number);
 	tmp = *stack;
 	*stack = tmp->next;
 	if (*stack != NULL)
