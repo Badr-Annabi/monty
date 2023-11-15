@@ -41,3 +41,23 @@ void _sub(stack_t **stack, unsigned int line_number)
 	(*stack)->prev = NULL;
 }
 
+/**
+ * _mul -  multiplies the second top element
+ * of the stack with the top element of the stack.
+ *
+ * @stack: the stack
+ *
+ * @line_number: the line number getting the opcode
+ */
+void _mul(stack_t **stack, unsigned int line_number)
+{
+	int result;
+
+	if (stack == NULL || (*stack) == NULL || (*stack)->next == NULL)
+		print_error(13, line_number);
+	(*stack) = (*stack)->next;
+	result = (*stack)->n * (*stack)->prev->n;
+	(*stack)->n = result;
+	free((*stack)->prev);
+	(*stack)->prev = NULL;
+}
