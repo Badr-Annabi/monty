@@ -51,18 +51,6 @@ int parse_line(char *filename)
 			continue;
 		value = strtok(NULL, delim);
 
-		if (strcmp(opcode, "stack") == 0)
-		{
-			format = 0;
-			return (format);
-		}
-		if (strcmp(opcode, "queue") == 0)
-		{
-			format = 1;
-			return (format);
-		}
-		if (opcode[0] == '#' || strcmp(opcode, "nop") == 0)
-			return (format);
 		call_function(opcode, value, line_number, format);
 	}
 	fclose(fd);

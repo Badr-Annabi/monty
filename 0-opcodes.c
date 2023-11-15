@@ -75,3 +75,14 @@ void print_all(stack_t **stack, unsigned int line_number)
 		tmp = tmp->next;
 	}
 }
+/**
+ * nop - doesn't do anything
+ * @stack: the stack
+ *
+ * @line_nume: unused var
+ */
+void nop(stack_t **stack, unsigned int line_number)
+{
+	(void) stack;
+	(void) line_number;
+}

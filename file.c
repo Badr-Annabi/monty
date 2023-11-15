@@ -26,8 +26,11 @@ void call_function(char *op, char *value, int line_number, int format)
 		{"pint", _pint},
 		{"swap", _swap},
 		{"pop", _pop},
+		{"nop", nop},
 		{NULL, NULL}
 	};
+	if (op[0] == '#')
+		return;
 	for (flag = 1, i = 0; func_list[i].opcode != NULL; i++)
 	{
 		if (strcmp(op, func_list[i].opcode) == 0)
@@ -52,6 +55,16 @@ void call_function(char *op, char *value, int line_number, int format)
 					func_list[i].f(&node, line_number);
 				if (format == 1)
 					add_to_queue(&node, line_number);
+			}
+			else if (strcmp(op, "stack") == 0)
+			{
+				format = 0;
+				return;
+			}
+			else if (strcmp(op, "queue") == 0)
+			{
+				format = 1;
+				return;
 			}
 			else
 			{
