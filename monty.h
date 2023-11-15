@@ -48,6 +48,9 @@ void free_nodes(void);
 int parse_line(char *filename);
 void call_function(char *op, char *value, int line_number, int format);
 void print_all(stack_t **stack, unsigned int line_number);
+void _swap(stack_t **stack, unsigned int line_number);
+void _pint(stack_t **stack, unsigned int line_number);
+void _pop(stack_t **stack, unsigned int line_number);
 
 
 #endif

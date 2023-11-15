@@ -23,6 +23,9 @@ void call_function(char *op, char *value, int line_number, int format)
 	instruction_t func_list[] = {
 		{"push", add_to_stack},
 		{"pall", print_all},
+		{"pint", _pint},
+		{"swap", _swap},
+		{"pop", _pop},
 		{NULL, NULL}
 	};
 	for (flag = 1, i = 0; func_list[i].opcode != NULL; i++)
