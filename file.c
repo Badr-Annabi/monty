@@ -57,6 +57,8 @@ int call_function(char *op, char *value, int line_number, int format)
 				if (format == 1)
 					add_to_queue(&node, line_number);
 			}
+			else
+				func_list[i].f(&head, line_number);
 		}
 		else if (strcmp(op, "stack") == 0)
 		{
@@ -69,10 +71,6 @@ int call_function(char *op, char *value, int line_number, int format)
 			found = 1;
 			format = 1;
 			return(format);
-		}
-		else
-		{
-			func_list[i].f(&head, line_number);
 		}
 	}
 	if (!found)
