@@ -14,6 +14,7 @@ void t(void)
  * @value: numeric value.
  * @line_number: line number for the instruction.
  * @format: format equal 0 if we are in a stack, and 1 if we entered a queue.
+ * Return: 0 if stack or 1 if queue
  */
 int call_function(char *op, char *value, int line_number, int format)
 {
@@ -31,7 +32,7 @@ int call_function(char *op, char *value, int line_number, int format)
 		{NULL, NULL}
 	};
 	if (op[0] == '#')
-		return(format);
+		return (format);
 	for (flag = 1, i = 0; func_list[i].opcode != NULL; i++)
 	{
 		if (strcmp(op, func_list[i].opcode) == 0)
@@ -64,13 +65,13 @@ int call_function(char *op, char *value, int line_number, int format)
 		{
 			found = 1;
 			format = 0;
-			return(format);
+			return (format);
 		}
 		else if (strcmp(op, "queue") == 0)
 		{
 			found = 1;
 			format = 1;
-			return(format);
+			return (format);
 		}
 	}
 	if (!found)
