@@ -33,5 +33,7 @@ void print_error(int choice, ...)
 			break;
 	}
 	va_end(args);
+	free_nodes();
+	exit(EXIT_FAILURE);
 
 }

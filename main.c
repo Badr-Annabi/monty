@@ -14,7 +14,6 @@ int main(int argc, char *argv[])
 	if (argc != 2)
 	{
 		print_error(2);
-		exit(EXIT_FAILURE);
 	}
 	parse_line(argv[1]);
 	free_nodes();
@@ -45,10 +44,7 @@ int parse_line(char *filename)
 	for (line_number = 1; getline(&buffer, &len, fd) != -1; line_number++)
 	{
 		if (buffer == NULL)
-		{
 			print_error(5);
-			exit(EXIT_FAILURE);
-		}
 
 		opcode = strtok(buffer, delim);
 		if (opcode == NULL)
@@ -67,6 +63,7 @@ int parse_line(char *filename)
 		}
 		call_function(opcode, value, line_number, format);
 	}
+	fclose(fd);
 	free(buffer);
 	return (format);
 }

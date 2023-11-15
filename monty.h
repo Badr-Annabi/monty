@@ -47,6 +47,7 @@ void add_to_queue(stack_t **node, unsigned int line_number);
 void free_nodes(void);
 int parse_line(char *filename);
 void call_function(char *op, char *value, int line_number, int format);
+void print_all(stack_t **stack, unsigned int line_number);
 
 
 #endif
