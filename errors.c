@@ -65,7 +65,8 @@ void print_error(int choice, ...)
 			fprintf(stderr, "L%d: can't mod, stack too short\n", va_arg(args, int));
 			break;
 		case 15:
-			fprintf(stderr, "L%d: can't pchar , value out of range\n", va_arg(args, int));
+			fprintf(stderr, "L%d: can't pchar , value out of range\n",
+					va_arg(args, int));
 			break;
 		case 16:
 			fprintf(stderr, "L%d: can't pchar, stack empty\n", va_arg(args, int));

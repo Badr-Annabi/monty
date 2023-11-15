@@ -79,7 +79,7 @@ void print_all(stack_t **stack, unsigned int line_number)
  * nop - doesn't do anything
  * @stack: the stack
  *
- * @line_nume: unused var
+ * @line_number: unused var
  */
 void nop(stack_t **stack, unsigned int line_number)
 {
