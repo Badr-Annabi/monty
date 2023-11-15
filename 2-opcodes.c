@@ -80,7 +80,7 @@ void _mod(stack_t **stack, unsigned int line_number)
 	(*stack) = (*stack)->next;
 	top_element = (*stack)->prev->n;
 	if (top_element == 0)
-		print_error(14, line_number);
+		print_error(12, line_number);
 	result = (*stack)->n % top_element;
 	(*stack)->n = result;
 	free((*stack)->prev);
