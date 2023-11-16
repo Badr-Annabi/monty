@@ -1,8 +1,8 @@
-#Getting two digits from stdin.
->,>,<
-#Adding two digits.(ASCII)
-[>+<-]>
-#Making 0 so we can have the sum in one digit-long(<10).
+# Getting two digits from stdin
+>,>,
+# Adding two digits
+<[>+<-]>
+# Making 0 so we can have the sum in one digit
 <<++++++[>++++++++<-]>
-# Substracting 0(48) from sum. 
+# Substracting 48  from sum
 [>-<-]>.
