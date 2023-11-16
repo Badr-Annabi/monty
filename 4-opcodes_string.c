@@ -32,14 +32,14 @@ void _pstr(stack_t **stack, unsigned int line_number)
 {
 	stack_t *tmp;
 	int c;
-	
+
 	(void)line_number;
 	if (stack == NULL || (*stack) == NULL)
 	{
 		printf("\n");
 		return;
 	}
-	
+
 	tmp = *stack;
 
 	while (tmp != NULL)
@@ -65,7 +65,7 @@ void rotl(stack_t **stack, unsigned int line_number)
 {
 	stack_t *iterator, *second_element;
 
-	(void) line_number;
+	(void)line_number;
 	if (stack == NULL || *stack == NULL || (*stack)->next == NULL)
 		return;
 	iterator = *stack;
@@ -87,22 +87,18 @@ void rotl(stack_t **stack, unsigned int line_number)
  */
 void rotr(stack_t **stack, unsigned int line_number)
 {
-        stack_t *iterator;
+	stack_t *iterator;
 	stack_t *last_elem;
-        (void) line_number;
-        if (stack == NULL || *stack == NULL || (*stack)->next == NULL)
-                return;
-        iterator = *stack;
-        while (iterator->next != NULL)
-                iterator = iterator->next;
-        last_elem = iterator;
+	(void) line_number;
+	if (stack == NULL || *stack == NULL || (*stack)->next == NULL)
+		return;
+	iterator = *stack;
+	while (iterator->next != NULL)
+		iterator = iterator->next;
+	last_elem = iterator;
 	iterator->prev->next = NULL;
-        last_elem->prev = NULL;
+	last_elem->prev = NULL;
 	last_elem->next = *stack;
-        (*stack)->prev = last_elem;
-        *stack = last_elem;
-
+	(*stack)->prev = last_elem;
+	*stack = last_elem;
 }
-
-
-
