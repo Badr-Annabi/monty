@@ -34,6 +34,7 @@ int call_function(char *op, char *value, int line_number, int format)
 		{"mul", _mul},
 		{"mod", _mod},
 		{"pchar", _pchar},
+		{"pstr", _pstr},
 		{"rotl", rotl},
 		{"rotr", rotr},
 		{NULL, NULL}
