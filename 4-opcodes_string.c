@@ -19,6 +19,41 @@ void _pchar(stack_t **stack, unsigned int line_number)
 		print_error(15, line_number);
 	printf("%c\n", top_element);
 }
+
+/**
+ * _pstr - prints the string starting at the top
+ * of the stack, followed by a new line.
+ *
+ * @stack: stack
+ *
+ * @line_number: line number
+ */
+void _pstr(stack_t **stack, unsigned int line_number)
+{
+	stack_t *tmp;
+	int c;
+	
+	(void)line_number;
+	if (stack == NULL || (*stack) == NULL)
+	{
+		printf("\n");
+		return;
+	}
+	
+	tmp = *stack;
+
+	while (tmp != NULL)
+	{
+		c = tmp->n;
+		if (c <= 0 || c > 127)
+			break;
+		printf("%c", c);
+		tmp = tmp->next;
+	}
+
+	printf("\n");
+}
+
 /**
  * rotl - rotates the stack to the top
  * The top element of the stack becomes the last one,
@@ -68,5 +103,6 @@ void rotr(stack_t **stack, unsigned int line_number)
         *stack = last_elem;
 
 }
+
 
 
